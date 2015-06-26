@@ -1,5 +1,5 @@
 {
-    "name": "altthree/logger",
+    "name": "alt-three/logger",
     "description": "A Logger Wrapper For Laravel 5",
     "keywords": ["logger", "logging", "Logger", "Alt Three"],
     "license": "MIT",

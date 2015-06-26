@@ -10,7 +10,7 @@ A logger wrapper for Laravel 5.
 To get the latest version of Alt Three Logger, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"altthree/logger": "~1.0"
+"alt-three/logger": "~1.0"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.

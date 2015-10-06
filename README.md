@@ -56,6 +56,11 @@ Alt Three provides two ready-made logger packages:
 - [Sentry](https://github.com/AltThree/Sentry)
 
 
+## Security
+
+If you discover a security vulnerability within this package, please e-mail us at support@alt-three.com. All security vulnerabilities will be promptly addressed.
+
+
 ## License
 
 Alt Three Logger is licensed under [The MIT License (MIT)](LICENSE).

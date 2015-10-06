@@ -30,15 +30,17 @@ class LoggerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();
+        $this->setupConfig($this->app);
     }
 
     /**
      * Setup the config.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function setupConfig()
+    protected function setupConfig(Application $app)
     {
         $source = realpath(__DIR__.'/../config/logger.php');
 

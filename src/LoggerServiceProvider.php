@@ -13,7 +13,9 @@ namespace AltThree\Logger;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Logging\Log;
+use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Lumen\Application as LumenApplication;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -44,9 +46,9 @@ class LoggerServiceProvider extends ServiceProvider
     {
         $source = realpath(__DIR__.'/../config/logger.php');
 
-        if (class_exists('Illuminate\Foundation\Application', false) && $app->runningInConsole()) {
+        if ($app instanceof LaravelApplication && $app->runningInConsole()) {
             $this->publishes([$source => config_path('logger.php')]);
-        } elseif (class_exists('Laravel\Lumen\Application', false)) {
+        } elseif ($app instanceof LumenApplication) {
             $app->configure('logger');
         }
 

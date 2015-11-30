@@ -47,7 +47,7 @@
     },
     "suggest": {
         "alt-three/bugsnag": "Log to Bugsnag.",
-        "alt-three/sentry": "Log to Sentry",
+        "alt-three/sentry": "Log to Sentry"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

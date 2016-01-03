@@ -74,7 +74,7 @@ class LoggerServiceProvider extends ServiceProvider
      */
     protected function registerLogger(Application $app)
     {
-        $app->singleton('logger', function ($app) {
+        $app->singleton('logger', function (Application $app) {
             $loggers = [];
 
             foreach ($app->config->get('logger.loggers', []) as $logger => $levels) {

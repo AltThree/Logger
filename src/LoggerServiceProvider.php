@@ -11,7 +11,7 @@
 
 namespace AltThree\Logger;
 
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
@@ -32,24 +32,22 @@ class LoggerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig($this->app);
+        $this->setupConfig();
     }
 
     /**
      * Setup the config.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function setupConfig(Application $app)
+    protected function setupConfig()
     {
         $source = realpath(__DIR__.'/../config/logger.php');
 
-        if ($app instanceof LaravelApplication && $app->runningInConsole()) {
+        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('logger.php')]);
-        } elseif ($app instanceof LumenApplication) {
-            $app->configure('logger');
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('logger');
         }
 
         $this->mergeConfigFrom($source, 'logger');
@@ -62,19 +60,17 @@ class LoggerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerLogger($this->app);
+        $this->registerLogger();
     }
 
     /**
      * Register the logger class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerLogger(Application $app)
+    protected function registerLogger()
     {
-        $app->singleton('logger', function (Application $app) {
+        $this->app->singleton('logger', function (Container $app) {
             $loggers = [];
 
             foreach ($app->config->get('logger.loggers', []) as $logger => $levels) {
@@ -84,9 +80,9 @@ class LoggerServiceProvider extends ServiceProvider
             return new LoggerWrapper($loggers);
         });
 
-        $app->alias('logger', LoggerWrapper::class);
-        $app->alias('logger', LoggerInterface::class);
-        $app->alias('logger', Log::class);
+        $this->app->alias('logger', LoggerWrapper::class);
+        $this->app->alias('logger', LoggerInterface::class);
+        $this->app->alias('logger', Log::class);
     }
 
     /**

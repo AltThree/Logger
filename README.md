@@ -56,14 +56,6 @@ The main advantage to this package is that we are still able to override the ioc
 An example of where this package can really help you out is in the exception handler. Without you having to make any changes there, you immediately have the ability to log to multiple places as Laravel's injecting our logger into your exception handler because of the binding we have to the psr logger interface.
 
 
-## Supported Loggers
-
-Alt Three provides two ready-made logger packages:
-
-- [Bugsnag](https://github.com/AltThree/Bugsnag)
-- [Sentry](https://github.com/AltThree/Sentry)
-
-
 ## Security
 
 If you discover a security vulnerability within this package, please e-mail us at support@alt-three.com. All security vulnerabilities will be promptly addressed.

@@ -23,14 +23,7 @@ Instead, you may of course manually update your require block and run `composer 
 }
 ```
 
-Once Alt Three Logger is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
-
-* `'AltThree\Logger\LoggerServiceProvider'`
-
-You can register the Logger facade in the `aliases` key of your `config/app.php` file if you like.
-
-* `'Logger' => 'AltThree\Logger\Facades\Logger'`
-
+Once Alt Three Logger is installed, you need to register the service provider. Open up `config/app.php` and add the `AltThree\Logger\LoggerServiceProvider` class to the `providers`.
 
 ## Configuration
 

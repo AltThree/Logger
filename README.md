@@ -5,25 +5,16 @@ A logger wrapper for Laravel 5.
 
 ## Installation
 
-Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
+This version requires [PHP](https://php.net) 7, and supports Laravel 5.1, 5.2, 5.3, or 5.4.
 
-To get the latest version of Alt Three Logger, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
 $ composer require alt-three/logger
 ```
 
-Instead, you may of course manually update your require block and run `composer update` if you so choose:
+Once installed, you need to register the `AltThree\Logger\LoggerServiceProvider` service provider in your `config/app.php`.
 
-```json
-{
-    "require": {
-        "alt-three/logger": "^1.0"
-    }
-}
-```
-
-Once Alt Three Logger is installed, you need to register the service provider. Open up `config/app.php` and add the `AltThree\Logger\LoggerServiceProvider` class to the `providers`.
 
 ## Configuration
 

@@ -12,7 +12,7 @@
 namespace AltThree\Tests\Logger;
 
 use AltThree\Logger\LoggerTrait;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 /**

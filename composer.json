@@ -44,6 +44,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "2.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "AltThree\\Logger\\LoggerServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

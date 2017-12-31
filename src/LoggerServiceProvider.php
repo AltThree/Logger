@@ -44,7 +44,7 @@ class LoggerServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
-        $source = realpath(__DIR__.'/../config/logger.php');
+        $source = realpath($raw = __DIR__.'/../config/logger.php') ?: $raw;
 
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('logger.php')]);
